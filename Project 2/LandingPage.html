@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack Pro - Smart Fitness Tracker</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+
+        /* Container for consistent spacing */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header section */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+            margin-bottom: 60px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Product showcase section */
+        .product-showcase {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 0 20px 60px 20px;
+            padding: 50px 40px;
+            border: 3px solid #e1e8ed;
+        }
+
+        .product-image {
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 20px;
+            margin: 0 auto 40px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+            border: 2px solid #ddd;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 0 15px;
+        }
+
+        .product-description {
+            font-size: 1.1rem;
+            color: #555;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+            border-left: 4px solid #667eea;
+            padding-left: 25px;
+        }
+
+        /* Features section */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+
+        .feature {
+            background: #f8f9fa;
+            padding: 25px 20px;
+            border-radius: 12px;
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            border: 2px solid #e9ecef;
+            margin: 10px 0;
+        }
+
+        .feature h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 40px;
+            margin: 0 20px 60px 20px;
+            border-radius: 15px;
+            border: 3px solid #34495e;
+        }
+
+        .cta-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            opacity: 0.9;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #4ecdc4;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 3px solid #c0392b;
+            margin: 10px;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6);
+            background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+        }
+
+        /* Newsletter section */
+        .newsletter-section {
+            background: white;
+            padding: 50px 40px;
+            margin: 0 20px 60px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 3px solid #e1e8ed;
+        }
+
+        .newsletter-title {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
+
+        .newsletter-subtitle {
+            font-size: 1.1rem;
+            color: #555;
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+
+        /* Form styles with Box Model demonstration */
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 2px solid #e9ecef;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            padding: 0 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px 18px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+            transition: all 0.3s ease;
+            margin: 0;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+            background: #fafbfc;
+        }
+
+        /* Checkbox styling with Box Model */
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e1e8ed;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            padding: 0;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checkbox-group label {
+            font-size: 0.95rem;
+            color: #555;
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+        }
+
+        /* Radio button group */
+        .radio-group {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e1e8ed;
+        }
+
+        .radio-group legend {
+            font-weight: 600;
+            color: #2c3e50;
+            padding: 0 10px;
+            margin-bottom: 15px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            margin: 0 10px 0 0;
+            padding: 0;
+        }
+
+        .radio-option label {
+            font-size: 0.95rem;
+            color: #555;
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Submit button */
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            color: white;
+            padding: 18px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 0 10px 0;
+            border: 2px solid #229954;
+        }
+
+        .submit-button:hover {
+            background: linear-gradient(135deg, #229954 0%, #1e8449 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        /* Form validation styles */
+        .form-group input:invalid {
+            border-color: #e74c3c;
+        }
+
+        .form-group input:valid {
+            border-color: #27ae60;
+        }
+
+        /* Required field indicator */
+        .required {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer p {
+            margin-bottom: 15px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+                padding: 0 20px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                padding: 0 30px;
+            }
+
+            .product-showcase,
+            .cta-section,
+            .newsletter-section {
+                margin: 0 10px 40px 10px;
+                padding: 30px 20px;
+            }
+
+            .features {
+                flex-direction: column;
+                align-items: center;
+                padding: 0 10px;
+            }
+
+            .feature {
+                max-width: 100%;
+            }
+
+            .newsletter-form {
+                padding: 20px 15px;
+            }
+
+            .form-group {
+                padding: 0 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .product-title,
+            .cta-title,
+            .newsletter-title {
+                font-size: 1.8rem;
+            }
+
+            .price {
+                font-size: 2.2rem;
+            }
+
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="hero-title">FitTrack Pro</h1>
+            <p class="hero-subtitle">The ultimate smart fitness tracker that adapts to your lifestyle and helps you achieve your health goals with precision and style.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-showcase">
+            <div class="container">
+                <div class="product-image">Smart Fitness Tracker</div>
+                <h2 class="product-title">Revolutionary Health Monitoring</h2>
+                <p class="product-description">
+                    FitTrack Pro combines cutting-edge technology with elegant design to provide comprehensive health monitoring. 
+                    Track your heart rate, sleep patterns, calories burned, and activity levels with medical-grade accuracy. 
+                    With 15-day battery life and waterproof design, it's built for your active lifestyle.
+                </p>
+
+                <div class="features">
+                    <div class="feature">
+                        <h3>Heart Rate Monitoring</h3>
+                        <p>Continuous 24/7 heart rate tracking with zones and alerts for optimal workout intensity.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Sleep Analytics</h3>
+                        <p>Advanced sleep stage detection with personalized insights to improve your rest quality.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>15-Day Battery</h3>
+                        <p>Ultra-long battery life means less charging and more tracking of your daily activities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="cta-title">Transform Your Fitness Journey</h2>
+                <p class="cta-subtitle">Join thousands of users who have already upgraded their health monitoring experience.</p>
+                <div class="price">$149.99</div>
+                <a href="#newsletter" class="cta-button">Get Yours Today</a>
+                <a href="#newsletter" class="cta-button" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); border-color: #2980b9; box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);">Learn More</a>
+            </div>
+        </section>
+
+        <section id="newsletter" class="newsletter-section">
+            <div class="container">
+                <h2 class="newsletter-title">Stay Updated & Get Exclusive Offers</h2>
+                <p class="newsletter-subtitle">
+                    Be the first to know about new features, health tips, and special promotions. 
+                    Plus, get 20% off your first purchase when you subscribe!
+                </p>
+
+                <form class="newsletter-form" action="#" method="POST" novalidate>
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required 
+                               aria-describedby="firstName-help" autocomplete="given-name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required 
+                               aria-describedby="lastName-help" autocomplete="family-name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required 
+                               placeholder="your.email@example.com"
+                               aria-describedby="email-help" autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone" 
+                               placeholder="+1 (555) 123-4567"
+                               aria-describedby="phone-help" autocomplete="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthdate">Birth Date (for personalized recommendations)</label>
+                        <input type="date" id="birthdate" name="birthdate" 
+                               aria-describedby="birthdate-help" autocomplete="bday">
+                    </div>
+
+                    <fieldset class="radio-group">
+                        <legend>Fitness Level <span class="required">*</span></legend>
+                        <div class="radio-option">
+                            <input type="radio" id="beginner" name="fitnessLevel" value="beginner" required>
+                            <label for="beginner">Beginner - Just starting my fitness journey</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="intermediate" name="fitnessLevel" value="intermediate" required>
+                            <label for="intermediate">Intermediate - Regular exercise routine</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="advanced" name="fitnessLevel" value="advanced" required>
+                            <label for="advanced">Advanced - Serious athlete or fitness enthusiast</label>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-group">
+                        <label for="interests">Primary Fitness Interest</label>
+                        <select id="interests" name="interests" aria-describedby="interests-help">
+                            <option value="">Select your main interest</option>
+                            <option value="weight-loss">Weight Loss</option>
+                            <option value="muscle-building">Muscle Building</option>
+                            <option value="endurance">Endurance Training</option>
+                            <option value="general-wellness">General Wellness</option>
+                            <option value="sports-performance">Sports Performance</option>
+                            <option value="rehabilitation">Rehabilitation</option>
+                        </select>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="newsletter-consent" name="newsletter" value="yes" required>
+                        <label for="newsletter-consent">
+                            I agree to receive marketing emails and newsletters from FitTrack Pro. 
+                            You can unsubscribe at any time. <span class="required">*</span>
+                        </label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="sms-consent" name="sms" value="yes">
+                        <label for="sms-consent">
+                            I would like to receive SMS notifications about my orders and important updates (Optional)
+                        </label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="privacy-policy" name="privacy" value="accepted" required>
+                        <label for="privacy-policy">
+                            I have read and agree to the Privacy Policy and Terms of Service <span class="required">*</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-button">Subscribe & Get 20% Off</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 FitTrack Pro. All rights reserved.</p>
+            <p>Transform your health journey with smart technology.</p>
+        </div>
+    </footer>
+</body>
+</html>

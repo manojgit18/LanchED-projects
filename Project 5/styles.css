@@ -1,0 +1,48 @@
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar styling */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    padding: 10px 20px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Content styling */
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 50px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+section h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+section p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
